@@ -15,7 +15,7 @@ EC_KEY *bbp_ec_new_keypair(const uint8_t *priv_bytes) {
 
     /* init empty OpenSSL EC keypair */
 
-    key = EC_KEY_new_by_curve_name(NID_secp256k1);
+    key = EC_KEY_new_by_curve_name(NID_X9_62_prime256v1);
 
     /* set private key through BIGNUM */
 
@@ -47,7 +47,7 @@ EC_KEY *bbp_ec_new_pubkey(const uint8_t *pub_bytes, size_t pub_len) {
     EC_KEY *key;
     const uint8_t *pub_bytes_copy;
 
-    key = EC_KEY_new_by_curve_name(NID_secp256k1);
+    key = EC_KEY_new_by_curve_name(NID_X9_62_prime256v1);
     pub_bytes_copy = pub_bytes;
     o2i_ECPublicKey(&key, &pub_bytes_copy, pub_len);
 
